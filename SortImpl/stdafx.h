@@ -19,6 +19,4 @@
 #include <memory>
 #include <vector>
 
-#define _CODING_INTERVIEW_CH11_
-
-// TODO: reference additional headers your program requires here
+#define _SORT_IMPL_DLL_

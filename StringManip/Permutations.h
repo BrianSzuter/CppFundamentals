@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "Exp.h"
+#include "StringManipExp.h"
 
 namespace PermutationsNS
 {

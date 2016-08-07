@@ -154,7 +154,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Exp.h" />
+    <ClInclude Include="StringManipExp.h" />
     <ClInclude Include="Swap.h" />
     <ClInclude Include="UniqueCharacters.h" />
     <ClInclude Include="Permutations.h" />

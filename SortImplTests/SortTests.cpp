@@ -15,7 +15,7 @@ namespace Chapter11Tests
 		{
 			vector<int> theVector{};
 
-			MergeSort(theVector);
+			SortNS::MergeSort(theVector);
 
 			vector<int> expected{};
 			Assert::IsTrue(expected == theVector);
@@ -25,7 +25,7 @@ namespace Chapter11Tests
 		{
 			vector<int> theVector{5};
 
-			MergeSort(theVector);
+			SortNS::MergeSort(theVector);
 
 			vector<int> expected{5};
 			Assert::IsTrue(expected == theVector);
@@ -35,7 +35,7 @@ namespace Chapter11Tests
 		{
 			vector<int> theVector{5, 2};
 
-			MergeSort(theVector);
+			SortNS::MergeSort(theVector);
 
 			vector<int> expected{2, 5};
 			Assert::IsTrue(expected == theVector);
@@ -45,7 +45,7 @@ namespace Chapter11Tests
 		{
 			vector<int> theVector{5, 2, 1, 0};
 
-			MergeSort(theVector);
+			SortNS::MergeSort(theVector);
 
 			vector<int> expected{0, 1, 2, 5};
 			Assert::IsTrue(expected == theVector);
@@ -55,7 +55,7 @@ namespace Chapter11Tests
 		{
 			vector<int> theVector{5, 2, 7, 11, 9};
 
-			MergeSort(theVector);
+			SortNS::MergeSort(theVector);
 
 			vector<int> expected{2, 5, 7, 9, 11};
 			Assert::IsTrue(expected == theVector);
@@ -70,7 +70,7 @@ namespace Chapter11Tests
 				theVector[i] = NumItems - i - 1;				
 			}
 
-			MergeSort(theVector);
+			SortNS::MergeSort(theVector);
 
 			vector<int> expected(NumItems);
 			for(int i = 0; i < NumItems; i++)
@@ -85,7 +85,7 @@ namespace Chapter11Tests
 		{
 			vector<int> theVector{5, 5, 5, 5, 5};
 
-			MergeSort(theVector);
+			SortNS::MergeSort(theVector);
 
 			vector<int> expected{5, 5, 5, 5, 5};
 			Assert::IsTrue(expected == theVector);
@@ -96,7 +96,7 @@ namespace Chapter11Tests
 		{
 			vector<int> theVector{};
 
-			QuickSort(theVector);
+			SortNS::QuickSort(theVector);
 
 			vector<int> expected{};
 			Assert::IsTrue(expected == theVector);
@@ -106,7 +106,7 @@ namespace Chapter11Tests
 		{
 			vector<int> theVector{5};
 
-			QuickSort(theVector);
+			SortNS::QuickSort(theVector);
 
 			vector<int> expected{5};
 			Assert::IsTrue(expected == theVector);
@@ -116,7 +116,7 @@ namespace Chapter11Tests
 		{
 			vector<int> theVector{5, 2};
 
-			QuickSort(theVector);
+			SortNS::QuickSort(theVector);
 
 			vector<int> expected{2, 5};
 			Assert::IsTrue(expected == theVector);
@@ -126,7 +126,7 @@ namespace Chapter11Tests
 		{
 			vector<int> theVector{5, 2, 1, 0};
 
-			QuickSort(theVector);
+			SortNS::QuickSort(theVector);
 
 			vector<int> expected{0, 1, 2, 5};
 			Assert::IsTrue(expected == theVector);
@@ -136,7 +136,7 @@ namespace Chapter11Tests
 		{
 			vector<int> theVector{5, 2, 7, 11, 9};
 
-			QuickSort(theVector);
+			SortNS::QuickSort(theVector);
 
 			vector<int> expected{2, 5, 7, 9, 11};
 			Assert::IsTrue(expected == theVector);
@@ -151,7 +151,7 @@ namespace Chapter11Tests
 				theVector[i] = NumItems - i - 1;
 			}
 
-			QuickSort(theVector);
+			SortNS::QuickSort(theVector);
 
 			vector<int> expected(NumItems);
 			for(int i = 0; i < NumItems; i++)
@@ -166,7 +166,7 @@ namespace Chapter11Tests
 		{
 			vector<int> theVector{5, 9, 11, 7, 2};
 
-			QuickSort(theVector);
+			SortNS::QuickSort(theVector);
 
 			vector<int> expected{2, 5, 7, 9, 11};
 			Assert::IsTrue(expected == theVector);
@@ -176,7 +176,7 @@ namespace Chapter11Tests
 		{
 			vector<int> theVector{5, 5, 5, 5, 5};
 
-			QuickSort(theVector);
+			SortNS::QuickSort(theVector);
 
 			vector<int> expected{5, 5, 5, 5, 5};
 			Assert::IsTrue(expected == theVector);
@@ -190,7 +190,7 @@ namespace Chapter11Tests
 			a.resize(4);
 			vector<int> b{2, 4, 7};
 
-			auto retval = MergeTogetherSortedArrays(a, b);
+			auto retval = SortNS::MergeTogetherSortedArrays(a, b);
 			
 			Assert::AreEqual(0, retval);
 			vector<int> expected{1, 2, 3, 4, 5, 6, 7};
@@ -204,7 +204,7 @@ namespace Chapter11Tests
 			a.resize(4);
 			vector<int> b{2, 4, 7};
 
-			auto retval = MergeTogetherSortedArrays(a, b);
+			auto retval = SortNS::MergeTogetherSortedArrays(a, b);
 
 			Assert::AreEqual(0, retval);
 			vector<int> expected{2, 4, 7, 8, 9, 10, 11};
@@ -218,7 +218,7 @@ namespace Chapter11Tests
 			a.resize(4);
 			vector<int> b{6, 7, 8};
 
-			auto retval = MergeTogetherSortedArrays(a, b);
+			auto retval = SortNS::MergeTogetherSortedArrays(a, b);
 
 			Assert::AreEqual(0, retval);
 			vector<int> expected{1, 3, 4, 5, 6, 7, 8};
@@ -231,7 +231,7 @@ namespace Chapter11Tests
 			a.resize(0);
 			vector<int> b{6, 7, 8};
 
-			auto retval = MergeTogetherSortedArrays(a, b);
+			auto retval = SortNS::MergeTogetherSortedArrays(a, b);
 
 			Assert::AreEqual(0, retval);
 			vector<int> expected{6, 7, 8};
@@ -243,7 +243,7 @@ namespace Chapter11Tests
 			vector<int> a{1, 3, 4, 5};
 			vector<int> b(0);
 
-			auto retval = MergeTogetherSortedArrays(a, b);
+			auto retval = SortNS::MergeTogetherSortedArrays(a, b);
 
 			Assert::AreEqual(0, retval);
 			vector<int> expected{1, 3, 4, 5};
@@ -255,7 +255,7 @@ namespace Chapter11Tests
 			vector<int> a(0);
 			vector<int> b(0);
 
-			auto retval = MergeTogetherSortedArrays(a, b);
+			auto retval = SortNS::MergeTogetherSortedArrays(a, b);
 
 			Assert::AreEqual(0, retval);
 			vector<int> expected(0);

@@ -13,5 +13,5 @@
 #include <set>
 
 // For export and import of symbols
-#define _CODING_INTERVIEW_CH1_
+#define _STRING_MANIP_DLL_
 

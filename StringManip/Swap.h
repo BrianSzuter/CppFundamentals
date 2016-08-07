@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Exp.h"
+#include "StringManipExp.h"
 
 namespace Swap
 {

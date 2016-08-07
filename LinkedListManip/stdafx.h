@@ -19,4 +19,4 @@
 #include <memory>
 #include <vector>
 
-#define _CODING_INTERVIEW_CH2_
+#define _LINKED_LIST_MANIP_DLL_

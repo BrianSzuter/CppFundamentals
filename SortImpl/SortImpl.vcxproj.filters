@@ -24,10 +24,10 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Exp.h">
+    <ClInclude Include="Sort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sort.h">
+    <ClInclude Include="SortImplExp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
