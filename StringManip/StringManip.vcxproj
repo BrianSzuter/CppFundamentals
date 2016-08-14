@@ -156,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="StringManipExp.h" />
     <ClInclude Include="Swap.h" />
+    <ClInclude Include="TimeConversion.h" />
     <ClInclude Include="UniqueCharacters.h" />
     <ClInclude Include="Permutations.h" />
     <ClInclude Include="stdafx.h" />
@@ -163,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Swap.cpp" />
+    <ClCompile Include="TimeConversion.cpp" />
     <ClCompile Include="UniqueCharacters.cpp" />
     <ClCompile Include="Permutations.cpp" />
     <ClCompile Include="stdafx.cpp">
