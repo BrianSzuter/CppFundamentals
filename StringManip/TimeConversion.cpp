@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <sstream>
+#include <exception>
 #include "TimeConversion.h"
 using namespace std;
 
