@@ -72,5 +72,53 @@ namespace PermutationsNS
 		return true;
 	}
 
-	
+	// Mutates the specified string to the next lexicographical string in place
+	// Returns true if successful, false if there is no such next string
+	// On failure, the original string is not modified.
+	bool MutateToNextPermutation(std::string& s)
+	{
+		if(s.length() < 2)
+		{
+			return false;
+		}
+
+		// Find longest non-increasing suffix
+		int SuffixIndexEnd = s.length() - 1;
+		int SuffixIndexBegin = SuffixIndexEnd;
+		while(s[SuffixIndexBegin - 1] >= s[SuffixIndexBegin])
+		{
+			SuffixIndexBegin--;
+		}
+
+		// Find the pivot
+		int PivotIndex = SuffixIndexBegin - 1;
+
+		// No Pivot -> Last Permutation, so no answer
+		if(PivotIndex < 0)
+		{
+			return false;
+		}
+
+		// Swap right-most element that is greater than pivot with the pivot
+		for(int i = SuffixIndexEnd; i >= SuffixIndexBegin; i--)
+		{
+			if(s[i] > s[PivotIndex])
+			{
+				std::swap(s[i], s[PivotIndex]);
+				break;
+			}
+
+			// Not possible
+			if(i == SuffixIndexBegin)
+			{
+				// Assert
+				throw std::logic_error("Logic Error: Some element of suffix must be greater than the pivot.");
+			}
+		}
+
+		// Reverse the suffix
+		std::reverse(&s[SuffixIndexBegin], &s[SuffixIndexEnd + 1]);
+
+		return true;
+	}
 };

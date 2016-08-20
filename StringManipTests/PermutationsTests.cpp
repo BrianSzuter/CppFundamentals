@@ -137,6 +137,70 @@ namespace StringManipTests
 		}
 	#pragma endregion
 	
-	
+	#pragma region "MutateToNextPermutation Tests"
+		TEST_METHOD(MutateToNextPermutation_EmptyString_Fails)
+		{
+			string str("");
+			auto result = MutateToNextPermutation(str);
+			Assert::IsFalse(result);
+			Assert::AreEqual(""s, str);
+		}
+
+		TEST_METHOD(MutateToNextPermutation_SingleChar_Fails)
+		{
+			string str("a");
+			auto result = MutateToNextPermutation(str);
+			Assert::IsFalse(result);
+			Assert::AreEqual("a"s, str);
+		}
+
+		TEST_METHOD(MutateToNextPermutation_TwoCharDecreasing_Fails)
+		{
+			string str("cb");
+			auto result = MutateToNextPermutation(str);
+			Assert::IsFalse(result);
+			Assert::AreEqual("cb"s, str);
+		}
+
+		TEST_METHOD(MutateToNextPermutation_NonDecreasing_Fails)
+		{
+			string str("fedcba");
+			auto result = MutateToNextPermutation(str);
+			Assert::IsFalse(result);
+			Assert::AreEqual("fedcba"s, str);
+		}
+
+		TEST_METHOD(MutateToNextPermutation_TwoCharIncreasing_Success)
+		{
+			string str("bc");
+			auto result = MutateToNextPermutation(str);
+			Assert::IsTrue(result);
+			Assert::AreEqual("cb"s, str);
+		}
+
+		TEST_METHOD(MutateToNextPermutation_RightmostPivot_Success)
+		{
+			string str("hefg");
+			auto result = MutateToNextPermutation(str);
+			Assert::IsTrue(result);
+			Assert::AreEqual("hegf"s, str);
+		}
+
+		TEST_METHOD(MutateToNextPermutation_LeftmostPivot_Success)
+		{
+			string str("dedcbba");
+			auto result = MutateToNextPermutation(str);
+			Assert::IsTrue(result);
+			Assert::AreEqual("eabbcdd"s, str);
+		}
+
+		TEST_METHOD(MutateToNextPermutation_MiddlePivot_Success)
+		{
+			string str("qdedcbba");
+			auto result = MutateToNextPermutation(str);
+			Assert::IsTrue(result);
+			Assert::AreEqual("qeabbcdd"s, str);
+		}
+	#pragma endregion
 	};
 }
