@@ -163,11 +163,11 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="RemoveDuplicatesTest.cpp">
+    <ClCompile Include="RemoveDuplicatesTests.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Reverse.cpp">
+    <ClCompile Include="ReverseTests.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -177,7 +177,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="NodeTest.cpp" />
+    <ClCompile Include="NodeTests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

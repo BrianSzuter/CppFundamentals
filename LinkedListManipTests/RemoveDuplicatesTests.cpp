@@ -5,9 +5,9 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace Chapter2Tests
+namespace LinkedListManipTests
 {		
-	TEST_CLASS(Chapter2Tests)
+	TEST_CLASS(RemoveDuplicatesTests)
 	{
 	public:
 		TEST_METHOD(RemoveDuplicates_SingleDuplicate_RemovesTheDuplicate)

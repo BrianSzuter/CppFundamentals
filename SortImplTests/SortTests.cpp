@@ -5,7 +5,7 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using std::vector;
 
-namespace Chapter11Tests
+namespace SortImplTests
 {		
 	TEST_CLASS(SortTests)
 	{

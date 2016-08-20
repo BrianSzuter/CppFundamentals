@@ -4,9 +4,9 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace Chapter2Tests
+namespace LinkedListManipTests
 {		
-	TEST_CLASS(Chapter2Tests)
+	TEST_CLASS(ReverseTests)
 	{
 	public:
 		TEST_METHOD(Reverse_EmptyList_ReturnsEmptyList)

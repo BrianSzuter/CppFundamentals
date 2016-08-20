@@ -26,13 +26,13 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NodeTest.cpp">
+    <ClCompile Include="ReverseTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RemoveDuplicatesTest.cpp">
+    <ClCompile Include="NodeTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Reverse.cpp">
+    <ClCompile Include="RemoveDuplicatesTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

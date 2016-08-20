@@ -5,7 +5,7 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace Chapter2Tests
+namespace LinkedListManipTests
 {		
 	TEST_CLASS(NodeTests)
 	{

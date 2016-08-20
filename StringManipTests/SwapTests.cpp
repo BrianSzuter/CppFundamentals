@@ -4,9 +4,9 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace Tests
+namespace StringManipTests
 {		
-	TEST_CLASS(Tests)
+	TEST_CLASS(SwapTests)
 	{
 	public:
 		TEST_METHOD(SwapChars_SwapsTwoDifferentChars_CharsAreSwapped)

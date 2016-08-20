@@ -5,9 +5,9 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace UniqueCharactersNS;
 
-namespace Chapter1Tests
+namespace StringManipTests
 {		
-	TEST_CLASS(Question1_1_Tests)
+	TEST_CLASS(UniqueCharactersTests)
 	{
 	public:
 		TEST_METHOD(HasAllUniqueCharacters_WhenSimpleDuplicate_ReturnsFalse)

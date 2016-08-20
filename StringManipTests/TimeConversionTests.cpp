@@ -6,9 +6,9 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
 using namespace TimeConversionNS;
 
-namespace Tests
+namespace StringManipTests
 {		
-	TEST_CLASS(Tests)
+	TEST_CLASS(TimeConversionTests)
 	{
 	public:
 		TEST_METHOD(ToMilitaryTime_12AM)

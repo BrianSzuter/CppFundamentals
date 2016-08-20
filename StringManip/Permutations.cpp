@@ -1,11 +1,14 @@
 #include "stdafx.h"
 #include "Permutations.h"
+#include <exception>
 
 namespace PermutationsNS
 {
-
+	// Checks if two strings are permutations of each other using sort
 	bool IsPermutation(const std::string& string1, const std::string& string2)
 	{
+
+		// Cannot be permutations if lengths differ
 		if(string1.length() != string2.length())
 			return false;
 
@@ -15,24 +18,28 @@ namespace PermutationsNS
 		std::sort(begin(localString1), end(localString1));
 		std::sort(begin(localString2), end(localString2));
 
+		// If sorted strings are identical, it must be a permutation
 		if(localString1 == localString2)
 			return true;
 		else
 			return false;
 	}
 
+	// Checks if two strings are permutations of each other using a map
 	bool IsPermutationMap(const std::string& string1, const std::string& string2)
 	{
+		// Cannot be permutations if lengths differ
 		if(string1.length() != string2.length())
 			return false;
 
 		std::map<char, uint64_t> table;
 
+		// Add all the characters from string1 to the map, counting occurrences
 		for(auto& character : string1)
 		{
 			if(table.find(character) != table.end())
 			{
-				table[character] = ++table[character];
+				table[character]++;
 			}
 			else
 			{
@@ -43,8 +50,10 @@ namespace PermutationsNS
 		for(auto& character : string2)
 		{
 			auto theItem = table.find(character);
+
 			if(theItem == table.end())
 			{
+				// Found an extra character in string2
 				return false;
 			}
 			else if(table[character] == 1)
@@ -57,6 +66,11 @@ namespace PermutationsNS
 			}
 		}
 
+		if(!table.empty())
+			throw std::logic_error("Logic Error: Map not empty, but strings are equal length.");
+
 		return true;
 	}
+
+	
 };

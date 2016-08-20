@@ -151,9 +151,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="StringManipExp.h" />
     <ClInclude Include="Swap.h" />
     <ClInclude Include="TimeConversion.h" />
