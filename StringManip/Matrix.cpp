@@ -2,13 +2,12 @@
 #include "Matrix.h"
 
 using std::vector;
-using std::make_unique;
 
 namespace StringManip
 {
 	Matrix::Matrix()
 	{
-		m_MatrixData = make_unique<vector<std::vector<int>>>();
+		m_MatrixData = new vector<std::vector<int>>;
 	}
 
 	Matrix::Matrix(size_t Dimension)
@@ -23,6 +22,7 @@ namespace StringManip
 
 	Matrix::~Matrix()
 	{
+		delete m_MatrixData;
 	}
 
 	// Rotates the matrix in-place

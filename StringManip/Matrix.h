@@ -2,7 +2,6 @@
 
 #include "StringManipExp.h"
 #include <vector>
-#include <memory>
 
 namespace StringManip
 {	
@@ -42,6 +41,6 @@ namespace StringManip
 		void RotateCellsNinetyClockwise(int & topleft, int & bottomleft, int & bottomright, int & topright);
 		void RotateCellsNinetyCounterClockwise(int & topleft, int & bottomleft, int & bottomright, int & topright);
 
-		std::unique_ptr<std::vector<std::vector<int>>> m_MatrixData;
+		std::vector<std::vector<int>>* m_MatrixData;
 	};
 }
