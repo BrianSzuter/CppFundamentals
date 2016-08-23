@@ -21,7 +21,7 @@ namespace TreeManipTests
 {		
 	TEST_CLASS(BTreeNodeTests)
 	{
-	public:
+	private:
 		
 		unique_ptr<BTreeNode> GenerateBTreeWithTwoNodeLeftOnly()
 		{
@@ -36,7 +36,7 @@ namespace TreeManipTests
 
 			return make_unique<BTreeNode>(2, nullptr, move(C));
 		}
-
+	
 		unique_ptr<BTreeNode> GenerateBTreeWithThreeNode()
 		{
 			auto B = make_unique<BTreeNode>(1);
@@ -59,6 +59,7 @@ namespace TreeManipTests
 			return make_unique<BTreeNode>(4, move(B), move(C));
 		}
 
+	public:
 		TEST_METHOD(VisitPreOrder_3Nodes_NodesVisited)
 		{
 			// Arrange
@@ -216,6 +217,36 @@ namespace TreeManipTests
 
 			// Assert
 			Assert::AreEqual(3, result);
+		}
+
+		TEST_METHOD(VisitEdgesOnly_3Nodes_NodesVisited)
+		{
+			// Arrange
+			auto A = GenerateBTreeWithThreeNode();
+
+			string result;
+			auto f = [&result](int i) {result += to_string(i) + " "s; };
+
+			// Act
+			BTreeNode::VisitEdgesOnly(A.get(), f);
+
+			// Assert
+			Assert::AreEqual("1 2 3 "s, result);
+		}
+
+		TEST_METHOD(VisitEdgesOnly_7Nodes_NodesVisited)
+		{
+			// Arrange
+			auto A = GenerateBTreeWithSevenNode();
+
+			string result;
+			auto f = [&result](int i) {result += to_string(i) + " "s; };
+
+			// Act
+			BTreeNode::VisitEdgesOnly(A.get(), f);
+
+			// Assert
+			Assert::AreEqual("1 2 4 6 7 "s, result);
 		}
 
 	};

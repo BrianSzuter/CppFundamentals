@@ -6,6 +6,29 @@
 using std::move;
 using std::unique_ptr;
 
+namespace
+{
+	using namespace TreeManip;
+
+	void visit_left_side(BTreeNode * root, std::function<void(int)> f)
+	{
+		if(root == nullptr)
+			return;
+
+		visit_left_side(root->GetLeft(), f);
+		f(root->GetData());
+	}
+
+	void visit_right_side(BTreeNode * root, std::function<void(int)> f)
+	{
+		if(root == nullptr)
+			return;
+
+		f(root->GetData());
+		visit_right_side(root->GetRight(), f);
+	}
+}
+
 namespace TreeManip
 {
 	BTreeNode::BTreeNode(int data, unique_ptr<BTreeNode> left, unique_ptr<BTreeNode> right)
@@ -89,6 +112,16 @@ namespace TreeManip
 		f(root->GetData());
 
 		return;
+	}
+
+	void BTreeNode::VisitEdgesOnly(BTreeNode * root, std::function<void(int)> f)
+	{
+		if(root == nullptr)
+			return;
+
+		visit_left_side(root->GetLeft(), f);
+		f(root->GetData());
+		visit_right_side(root->GetRight(), f);
 	}
 
 	int BTreeNode::GetHeight(BTreeNode* root)

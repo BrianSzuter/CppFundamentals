@@ -32,8 +32,12 @@ namespace TreeManip
 		static void VisitInOrder(BTreeNode* root, std::function<void(int)> f);
 		static void VisitPostOrder(BTreeNode* root, std::function<void(int)> f);
 
+		static void VisitEdgesOnly(BTreeNode* root, std::function<void(int)> f);
+
 		static int GetHeight(BTreeNode* root);
 	private:
+
+
 		int m_data;
 		std::unique_ptr<BTreeNode> m_pLeft = nullptr;
 		std::unique_ptr<BTreeNode> m_pRight = nullptr;
