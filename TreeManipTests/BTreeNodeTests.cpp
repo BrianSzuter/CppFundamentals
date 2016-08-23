@@ -4,7 +4,7 @@
 #include <string>
 #include <functional>
 #include "CppUnitTest.h"
-#include "TreeNode.h"
+#include "BTreeNode.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std::string_literals;
@@ -19,56 +19,56 @@ using std::to_string;
 
 namespace TreeManipTests
 {		
-	TEST_CLASS(TreeNodeTests)
+	TEST_CLASS(BTreeNodeTests)
 	{
 	public:
 		
-		unique_ptr<TreeNode> GenerateTreeWithTwoNodeLeftOnly()
+		unique_ptr<BTreeNode> GenerateBTreeWithTwoNodeLeftOnly()
 		{
-			auto B = make_unique<TreeNode>(1);
+			auto B = make_unique<BTreeNode>(1);
 
-			return make_unique<TreeNode>(2, move(B), nullptr);
+			return make_unique<BTreeNode>(2, move(B), nullptr);
 		}
 
-		unique_ptr<TreeNode> GenerateTreeWithTwoNodeRight()
+		unique_ptr<BTreeNode> GenerateBTreeWithTwoNodeRight()
 		{
-			auto C = make_unique<TreeNode>(3);
+			auto C = make_unique<BTreeNode>(3);
 
-			return make_unique<TreeNode>(2, nullptr, move(C));
+			return make_unique<BTreeNode>(2, nullptr, move(C));
 		}
 
-		unique_ptr<TreeNode> GenerateTreeWithThreeNode()
+		unique_ptr<BTreeNode> GenerateBTreeWithThreeNode()
 		{
-			auto B = make_unique<TreeNode>(1);
-			auto C = make_unique<TreeNode>(3);
+			auto B = make_unique<BTreeNode>(1);
+			auto C = make_unique<BTreeNode>(3);
 
-			return make_unique<TreeNode>(2, move(B), move(C));
+			return make_unique<BTreeNode>(2, move(B), move(C));
 		}
 
-		unique_ptr<TreeNode> GenerateTreeWithSevenNode()
+		unique_ptr<BTreeNode> GenerateBTreeWithSevenNode()
 		{
-			auto Bl = make_unique<TreeNode>(1);
-			auto Br = make_unique<TreeNode>(3);
+			auto Bl = make_unique<BTreeNode>(1);
+			auto Br = make_unique<BTreeNode>(3);
 
-			auto B = make_unique<TreeNode>(2, move(Bl), move(Br));
+			auto B = make_unique<BTreeNode>(2, move(Bl), move(Br));
 
-			auto Cl = make_unique<TreeNode>(5);
-			auto Cr = make_unique<TreeNode>(7);
-			auto C = make_unique<TreeNode>(6, move(Cl), move(Cr));
+			auto Cl = make_unique<BTreeNode>(5);
+			auto Cr = make_unique<BTreeNode>(7);
+			auto C = make_unique<BTreeNode>(6, move(Cl), move(Cr));
 
-			return make_unique<TreeNode>(4, move(B), move(C));
+			return make_unique<BTreeNode>(4, move(B), move(C));
 		}
 
 		TEST_METHOD(VisitPreOrder_3Nodes_NodesVisited)
 		{
 			// Arrange
-			auto A = GenerateTreeWithThreeNode();
+			auto A = GenerateBTreeWithThreeNode();
 
 			string result;
 			auto f = [&result](int i) {result += to_string(i) + " "s; };
 
 			// Act
-			TreeNode::VisitPreOrder(A.get(), f);
+			BTreeNode::VisitPreOrder(A.get(), f);
 
 			// Assert
 			Assert::AreEqual("2 1 3 "s, result);
@@ -77,13 +77,13 @@ namespace TreeManipTests
 		TEST_METHOD(VisitPreOrder_7Nodes_NodesVisited)
 		{
 			// Arrange
-			auto A = GenerateTreeWithSevenNode();
+			auto A = GenerateBTreeWithSevenNode();
 
 			string result;
 			auto f = [&result](int i) {result += to_string(i) + " "s; };
 
 			// Act
-			TreeNode::VisitPreOrder(A.get(), f);
+			BTreeNode::VisitPreOrder(A.get(), f);
 
 			// Assert
 			Assert::AreEqual("4 2 1 3 6 5 7 "s, result);
@@ -92,13 +92,13 @@ namespace TreeManipTests
 		TEST_METHOD(VisitInOrder_3Nodes_NodesVisited)
 		{			
 			// Arrange
-			auto A = GenerateTreeWithThreeNode();
+			auto A = GenerateBTreeWithThreeNode();
 
 			string result;
 			auto f = [&result](int i) {result += to_string(i) + " "s; };
 
 			// Act
-			TreeNode::VisitInOrder(A.get(), f);
+			BTreeNode::VisitInOrder(A.get(), f);
 
 			// Assert
 			Assert::AreEqual("1 2 3 "s, result);
@@ -107,13 +107,13 @@ namespace TreeManipTests
 		TEST_METHOD(VisitInOrder_7Nodes_NodesVisited)
 		{
 			// Arrange
-			auto A = GenerateTreeWithSevenNode();
+			auto A = GenerateBTreeWithSevenNode();
 
 			string result;
 			auto f = [&result](int i) {result += to_string(i) + " "s; };
 
 			// Act
-			TreeNode::VisitInOrder(A.get(), f);
+			BTreeNode::VisitInOrder(A.get(), f);
 
 			// Assert
 			Assert::AreEqual("1 2 3 4 5 6 7 "s, result);
@@ -122,13 +122,13 @@ namespace TreeManipTests
 		TEST_METHOD(VisitPostOrder_3Nodes_NodesVisited)
 		{
 			// Arrange
-			auto A = GenerateTreeWithThreeNode();
+			auto A = GenerateBTreeWithThreeNode();
 
 			string result;
 			auto f = [&result](int i) {result += to_string(i) + " "s; };
 
 			// Act
-			TreeNode::VisitPostOrder(A.get(), f);
+			BTreeNode::VisitPostOrder(A.get(), f);
 
 			// Assert
 			Assert::AreEqual("1 3 2 "s, result);
@@ -137,13 +137,13 @@ namespace TreeManipTests
 		TEST_METHOD(VisitPostOrder_7Nodes_NodesVisited)
 		{
 			// Arrange
-			auto A = GenerateTreeWithSevenNode();
+			auto A = GenerateBTreeWithSevenNode();
 
 			string result;
 			auto f = [&result](int i) {result += to_string(i) + " "s; };
 
 			// Act
-			TreeNode::VisitPostOrder(A.get(), f);
+			BTreeNode::VisitPostOrder(A.get(), f);
 
 			// Assert
 			Assert::AreEqual("1 3 2 5 7 6 4 "s, result);
@@ -152,7 +152,7 @@ namespace TreeManipTests
 		TEST_METHOD(GetHeight_0Node)
 		{
 			// Act
-			auto result = TreeNode::GetHeight(nullptr);
+			auto result = BTreeNode::GetHeight(nullptr);
 
 			// Assert
 			Assert::AreEqual(0, result);
@@ -161,10 +161,10 @@ namespace TreeManipTests
 		TEST_METHOD(GetHeight_1Node)
 		{
 			// Arrange
-			auto A = make_unique<TreeNode>(2);
+			auto A = make_unique<BTreeNode>(2);
 
 			// Act
-			auto result = TreeNode::GetHeight(A.get());
+			auto result = BTreeNode::GetHeight(A.get());
 
 			// Assert
 			Assert::AreEqual(1, result);
@@ -173,10 +173,10 @@ namespace TreeManipTests
 		TEST_METHOD(GetHeight_2NodesLeftOnly)
 		{
 			// Arrange
-			auto A = GenerateTreeWithTwoNodeLeftOnly();
+			auto A = GenerateBTreeWithTwoNodeLeftOnly();
 
 			// Act
-			auto result = TreeNode::GetHeight(A.get());
+			auto result = BTreeNode::GetHeight(A.get());
 
 			// Assert
 			Assert::AreEqual(2, result);
@@ -185,10 +185,10 @@ namespace TreeManipTests
 		TEST_METHOD(GetHeight_2Nodes_RightOnly)
 		{
 			// Arrange
-			auto A = GenerateTreeWithTwoNodeRight();
+			auto A = GenerateBTreeWithTwoNodeRight();
 
 			// Act
-			auto result = TreeNode::GetHeight(A.get());
+			auto result = BTreeNode::GetHeight(A.get());
 
 			// Assert
 			Assert::AreEqual(2, result);
@@ -197,10 +197,10 @@ namespace TreeManipTests
 		TEST_METHOD(GetHeight_3Nodes)
 		{
 			// Arrange
-			auto A = GenerateTreeWithThreeNode();
+			auto A = GenerateBTreeWithThreeNode();
 
 			// Act
-			auto result = TreeNode::GetHeight(A.get());
+			auto result = BTreeNode::GetHeight(A.get());
 
 			// Assert
 			Assert::AreEqual(2, result);
@@ -209,10 +209,10 @@ namespace TreeManipTests
 		TEST_METHOD(GetHeight_7Nodes)
 		{
 			// Arrange
-			auto A = GenerateTreeWithSevenNode();
+			auto A = GenerateBTreeWithSevenNode();
 
 			// Act
-			auto result = TreeNode::GetHeight(A.get());
+			auto result = BTreeNode::GetHeight(A.get());
 
 			// Assert
 			Assert::AreEqual(3, result);

@@ -1,14 +1,14 @@
 #pragma once
 
 #include "stdafx.h"
-#include "TreeNode.h"
+#include "BTreeNode.h"
 
 using std::move;
 using std::unique_ptr;
 
 namespace TreeManip
 {
-	TreeNode::TreeNode(int data, unique_ptr<TreeNode> left, unique_ptr<TreeNode> right)
+	BTreeNode::BTreeNode(int data, unique_ptr<BTreeNode> left, unique_ptr<BTreeNode> right)
 		: m_data(data)
 		, m_pLeft(move(left))
 		, m_pRight(move(right))
@@ -16,37 +16,37 @@ namespace TreeManip
 
 	}
 
-	TreeNode::TreeNode(int data)
+	BTreeNode::BTreeNode(int data)
 		: m_data(data)
 	{
 	}
 
-	void TreeNode::SetLeft(unique_ptr<TreeNode> left)
+	void BTreeNode::SetLeft(unique_ptr<BTreeNode> left)
 	{
 		m_pLeft = move(left);
 	}
 
-	void TreeNode::SetRight(unique_ptr<TreeNode> right)
+	void BTreeNode::SetRight(unique_ptr<BTreeNode> right)
 	{
 		m_pRight = move(right);
 	}
 
-	TreeNode* TreeNode::GetLeft()
+	BTreeNode* BTreeNode::GetLeft()
 	{
 		return m_pLeft.get();
 	}
 
-	TreeNode* TreeNode::GetRight()
+	BTreeNode* BTreeNode::GetRight()
 	{
 		return m_pRight.get();
 	}
 
-	int TreeNode::GetData()
+	int BTreeNode::GetData()
 	{
 		return m_data;
 	}
 
-	void TreeNode::VisitPreOrder(TreeNode* root, std::function<void(int)> f)
+	void BTreeNode::VisitPreOrder(BTreeNode* root, std::function<void(int)> f)
 	{
 
 		if(root == nullptr)
@@ -61,7 +61,7 @@ namespace TreeManip
 		return;
 	}
 
-	void TreeNode::VisitInOrder(TreeNode* root, std::function<void(int)> f)
+	void BTreeNode::VisitInOrder(BTreeNode* root, std::function<void(int)> f)
 	{
 
 		if(root == nullptr)
@@ -76,7 +76,7 @@ namespace TreeManip
 		return;
 	}
 
-	void TreeNode::VisitPostOrder(TreeNode* root, std::function<void(int)> f)
+	void BTreeNode::VisitPostOrder(BTreeNode* root, std::function<void(int)> f)
 	{
 
 		if(root == nullptr)
@@ -91,7 +91,7 @@ namespace TreeManip
 		return;
 	}
 
-	int TreeNode::GetHeight(TreeNode* root)
+	int BTreeNode::GetHeight(BTreeNode* root)
 	{
 		if(root == nullptr)
 			return 0;
