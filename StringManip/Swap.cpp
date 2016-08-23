@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "Swap.h"
 
-namespace Swap
+namespace StringManip
 {
 	// Swap two characters using no additional memory
 	void SwapChar(char& a, char& b)

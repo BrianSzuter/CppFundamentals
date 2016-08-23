@@ -4,6 +4,7 @@
 #include "RemoveDuplicates.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+using namespace LinkedListManip;
 
 namespace LinkedListManipTests
 {		

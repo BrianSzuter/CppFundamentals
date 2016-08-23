@@ -3,6 +3,7 @@
 #include "Swap.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+using namespace StringManip;
 
 namespace StringManipTests
 {		
@@ -14,7 +15,7 @@ namespace StringManipTests
 			char first = 'x';
 			char second = 'y';
 
-			Swap::SwapChar(first, second);
+			SwapChar(first, second);
 
 			Assert::AreEqual('y', first);
 			Assert::AreEqual('x', second);
@@ -25,7 +26,7 @@ namespace StringManipTests
 			char first = 'x';
 			char second = 'x';
 
-			Swap::SwapChar(first, second);
+			SwapChar(first, second);
 
 			Assert::AreEqual('x', first);
 			Assert::AreEqual('x', second);

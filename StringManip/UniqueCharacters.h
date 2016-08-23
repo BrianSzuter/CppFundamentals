@@ -3,7 +3,7 @@
 #include <string>
 #include "StringManipExp.h"
 
-namespace UniqueCharactersNS
+namespace StringManip
 {
 	bool STRING_MANIP_DLLEXPORT HasAllUniqueCharacters(std::string input);
 

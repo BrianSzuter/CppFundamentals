@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 
-namespace TimeConversionNS
+namespace StringManip
 {
 	std::string STRING_MANIP_DLLEXPORT ToMilitaryTime(const std::string& time);
 

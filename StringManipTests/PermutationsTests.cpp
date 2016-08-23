@@ -4,7 +4,7 @@
 #include <string>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace PermutationsNS;
+using namespace StringManip;
 using namespace std::string_literals;
 using std::string;
 

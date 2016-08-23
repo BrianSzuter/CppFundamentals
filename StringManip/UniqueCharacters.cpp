@@ -1,7 +1,8 @@
 
 #include "stdafx.h"
 #include "UniqueCharacters.h"
-namespace UniqueCharactersNS
+
+namespace StringManip
 {
 
 	bool HasAllUniqueCharacters(std::string input)

@@ -3,28 +3,32 @@
 #include "LinkedListManipExp.h"
 #include "Node.h"
 
-
-template<typename T>
-std::unique_ptr<Node<T>> RemoveDuplicates(std::unique_ptr<Node<T>> pHead)
+namespace LinkedListManip
 {
-	std::map<T, int> tracker;
-
-	auto pCurrent = pHead.get();
-	while(pCurrent != nullptr)
+	// Removes duplicate nodes.
+	// Returns pointer to new head of the list.
+	template<typename T>
+	std::unique_ptr<Node<T>> RemoveDuplicates(std::unique_ptr<Node<T>> pHead)
 	{
-		auto data = pCurrent->GetData();
-		tracker[data] += 1;
+		std::map<T, int> tracker;
 
-		pCurrent = pCurrent->GetNext();
-	}
-
-	for(auto& pair : tracker)
-	{
-		for(auto numDuplicates = pair.second - 1; numDuplicates > 0; --numDuplicates)
+		auto pCurrent = pHead.get();
+		while(pCurrent != nullptr)
 		{
-			pHead = Node<T>::DeleteNode(std::move(pHead), pair.first);
-		}
-	}
+			auto data = pCurrent->GetData();
+			tracker[data] += 1;
 
-	return pHead;
+			pCurrent = pCurrent->GetNext();
+		}
+
+		for(auto& pair : tracker)
+		{
+			for(auto numDuplicates = pair.second - 1; numDuplicates > 0; --numDuplicates)
+			{
+				pHead = Node<T>::DeleteNode(std::move(pHead), pair.first);
+			}
+		}
+
+		return pHead;
+	}
 }

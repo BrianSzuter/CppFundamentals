@@ -26,7 +26,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccProvider>SAK</SccProvider>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Chapter2</RootNamespace>
+    <RootNamespace>TreeManip</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
     <ProjectName>TreeManip</ProjectName>
   </PropertyGroup>

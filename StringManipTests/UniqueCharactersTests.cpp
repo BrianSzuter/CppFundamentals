@@ -3,7 +3,7 @@
 #include "UniqueCharacters.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace UniqueCharactersNS;
+using namespace StringManip;
 
 namespace StringManipTests
 {		
