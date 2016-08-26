@@ -2,9 +2,11 @@
 
 #include "stdafx.h"
 #include "BTreeNode.h"
+#include <queue>
 
 using std::move;
 using std::unique_ptr;
+using std::queue;
 
 namespace
 {
@@ -110,6 +112,32 @@ namespace TreeManip
 		VisitPostOrder(root->GetRight(), f);
 
 		f(root->GetData());
+
+		return;
+	}
+
+	void BTreeNode::VisitLevelOrder(BTreeNode * root, std::function<void(int)> f)
+	{
+		if(root == nullptr)
+			return;
+
+		queue<BTreeNode*> q;
+		q.push(root);
+
+		while(!q.empty())
+		{
+			auto n = q.front();
+			q.pop();
+
+			f(n->GetData());
+
+			auto left = n->GetLeft();
+			auto right = n->GetRight();
+			if(left != nullptr)
+				q.push(left);
+			if(right != nullptr)
+				q.push(right);
+		}
 
 		return;
 	}

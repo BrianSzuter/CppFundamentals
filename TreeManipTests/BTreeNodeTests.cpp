@@ -249,5 +249,35 @@ namespace TreeManipTests
 			Assert::AreEqual("1 2 4 6 7 "s, result);
 		}
 
+		TEST_METHOD(VisitLevelOrder_3Nodes_NodesVisited)
+		{
+			// Arrange
+			auto A = GenerateBTreeWithThreeNode();
+
+			string result;
+			auto f = [&result](int i) {result += to_string(i) + " "s; };
+
+			// Act
+			BTreeNode::VisitLevelOrder(A.get(), f);
+
+			// Assert
+			Assert::AreEqual("2 1 3 "s, result);
+		}
+
+		TEST_METHOD(VisitLevelOrder_7Nodes_NodesVisited)
+		{
+			// Arrange
+			auto A = GenerateBTreeWithSevenNode();
+
+			string result;
+			auto f = [&result](int i) {result += to_string(i) + " "s; };
+
+			// Act
+			BTreeNode::VisitLevelOrder(A.get(), f);
+
+			// Assert
+			Assert::AreEqual("4 2 6 1 3 5 7 "s, result);
+		}
+
 	};
 }
