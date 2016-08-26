@@ -279,5 +279,39 @@ namespace TreeManipTests
 			Assert::AreEqual("4 2 6 1 3 5 7 "s, result);
 		}
 
+		TEST_METHOD(InsertBST_Build3NodeTree_FromNothing)
+		{
+			// Act
+			auto root = BTreeNode::InsertBST(nullptr, 2);
+			root = BTreeNode::InsertBST(move(root), 1);
+			root = BTreeNode::InsertBST(move(root), 3);
+
+			// Assert
+			Assert::AreEqual(2, root->GetData());
+			Assert::AreEqual(1, root->GetLeft()->GetData());
+			Assert::AreEqual(3, root->GetRight()->GetData());
+		}
+
+		TEST_METHOD(InsertBST_Build7NodeTree_FromExistingTree)
+		{
+			// Arrange
+			auto root = GenerateBTreeWithThreeNode();
+
+			// Act (Order Matters)			
+			root = BTreeNode::InsertBST(move(root), 5);
+			root = BTreeNode::InsertBST(move(root), 4);
+			root = BTreeNode::InsertBST(move(root), 6);
+			root = BTreeNode::InsertBST(move(root), 0);
+
+			// Assert
+			Assert::AreEqual(2, root->GetData());
+			Assert::AreEqual(1, root->GetLeft()->GetData());
+			Assert::AreEqual(3, root->GetRight()->GetData());
+			Assert::AreEqual(5, root->GetRight()->GetRight()->GetData());
+			Assert::AreEqual(4, root->GetRight()->GetRight()->GetLeft()->GetData());
+			Assert::AreEqual(6, root->GetRight()->GetRight()->GetRight()->GetData());
+			Assert::AreEqual(0, root->GetLeft()->GetLeft()->GetData());
+		}
+
 	};
 }

@@ -37,6 +37,15 @@ namespace TreeManip
 		static void VisitEdgesOnly(BTreeNode* root, std::function<void(int)> f);
 
 		static int GetHeight(BTreeNode* root);
+
+		// Insert the specified value into the tree.
+		// Pre-Condition: root is a valid Binary Search Tree.
+		// Post-Condition: the returned BTreeNode remains a Binary Search Tree
+		// and contains a new node for "value".
+		// Returns the (potentially) new root of the Binary Search Tree.
+		// No attempt is made to keep the tree balanced.
+		static std::unique_ptr<BTreeNode> InsertBST(std::unique_ptr<BTreeNode> root, int value);
+
 	private:
 
 

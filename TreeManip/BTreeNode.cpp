@@ -6,6 +6,7 @@
 
 using std::move;
 using std::unique_ptr;
+using std::make_unique;
 using std::queue;
 
 namespace
@@ -28,6 +29,30 @@ namespace
 
 		f(root->GetData());
 		visit_right_side(root->GetRight(), f);
+	}
+
+	void InsertBST_Helper(BTreeNode* root, int value)
+	{
+		// less than or equal to root & left is null, insert as left child
+		if((value <= root->GetData()) && (root->GetLeft() == nullptr))
+		{
+			auto n = make_unique<BTreeNode>(value, nullptr, nullptr);
+			root->SetLeft(move(n));
+		}
+		// greater than root & right is null, insert as right child
+		else if((value > root->GetData()) && (root->GetRight() == nullptr))
+		{
+			auto n = make_unique<BTreeNode>(value, nullptr, nullptr);
+			root->SetRight(move(n));
+		}
+		else if(value <= root->GetData())
+		{
+			InsertBST_Helper(root->GetLeft(), value);
+		}
+		else
+		{// value > root->data
+			InsertBST_Helper(root->GetRight(), value);
+		}
 	}
 }
 
@@ -163,5 +188,17 @@ namespace TreeManip
 		int maxheight = std::max(left, right);
 
 		return maxheight + 1;
+	}
+
+	std::unique_ptr<BTreeNode> BTreeNode::InsertBST(std::unique_ptr<BTreeNode> root, int value)
+	{
+		if(root == nullptr)
+		{
+			return make_unique<BTreeNode>(value, nullptr, nullptr);
+		}
+
+		InsertBST_Helper(root.get(), value);
+
+		return root;
 	}
 }
