@@ -14,7 +14,9 @@ using std::make_unique;
 using std::unique_ptr;
 using std::move;
 using std::string;
+using std::wstring;
 using std::to_string;
+using std::to_wstring;
 
 
 namespace TreeManipTests
@@ -313,5 +315,47 @@ namespace TreeManipTests
 			Assert::AreEqual(0, root->GetLeft()->GetLeft()->GetData());
 		}
 
+		TEST_METHOD(GetLowestCommonAncestor_TableDriven)
+		{
+			struct TestItem
+			{
+				unsigned int TestID;
+				int value1;
+				int value2;
+				int expected;
+			};
+
+			TestItem TestItems[] = 
+			{
+				{__LINE__, 1, 3, 2 },
+				{__LINE__, 1, 2, 2 },
+				{__LINE__, 1, 4, 4 },
+				{__LINE__, 1, 6, 4 },
+				{__LINE__, 6, 1, 4 },
+				{__LINE__, 3, 2, 2 },
+				{__LINE__, 3, 4, 4 },
+				{__LINE__, 3, 6, 4 },
+				{__LINE__, 6, 3, 4 },
+				{__LINE__, 2, 6, 4 },
+				{__LINE__, 2, 4, 4 },
+				{__LINE__, 2, 5, 4 },
+				{__LINE__, 2, 7, 4 },
+				{__LINE__, 5, 7, 6 },
+				{__LINE__, 5, 5, 5 },
+				{__LINE__, 6, 6, 6 },
+				{__LINE__, 4, 4, 4 },
+				{__LINE__, 7, 5, 6 },
+			};
+
+			auto root = GenerateBTreeWithSevenNode();
+
+			for(const auto& t : TestItems)
+			{
+				auto resultNode = BTreeNode::GetLowestCommonAncestor(root.get(), t.value1, t.value2);
+
+				wstring AssertMsg = L"Test Case Line: "s + to_wstring(t.TestID);
+				Assert::AreEqual(t.expected, resultNode->GetData(), AssertMsg.c_str());
+			}
+		}
 	};
 }

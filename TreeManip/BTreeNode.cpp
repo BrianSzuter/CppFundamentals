@@ -54,6 +54,29 @@ namespace
 			InsertBST_Helper(root->GetRight(), value);
 		}
 	}
+
+	// Pre-Condition: valueLow <= valueHigh
+	BTreeNode * Get_LCA_Helper(BTreeNode * root, int valueLow, int valueHigh)
+	{
+		if(root == nullptr)
+			return root;
+
+		// Root is between valueLow and valueHigh
+		if(valueLow <= root->GetData() && valueHigh >= root->GetData())
+		{
+			return root;
+		}
+		// Root is greater than both valueLow and valueHigh
+		else if(valueLow <= root->GetData() && valueHigh <= root->GetData())
+		{
+			return Get_LCA_Helper(root->GetLeft(), valueLow, valueHigh);
+		}
+		else
+		{// valueLow > root->GetData() && valueHigh > root->GetData()
+			// Root is less than both valueLow and valueHigh
+			return Get_LCA_Helper(root->GetRight(), valueLow, valueHigh);
+		}
+	}
 }
 
 namespace TreeManip
@@ -200,5 +223,13 @@ namespace TreeManip
 		InsertBST_Helper(root.get(), value);
 
 		return root;
+	}
+
+	BTreeNode* BTreeNode::GetLowestCommonAncestor(BTreeNode* root, int value1, int value2)
+	{
+		if(root == nullptr)
+			return root;
+
+		return ((value1 <= value2) ? Get_LCA_Helper(root, value1, value2) : Get_LCA_Helper(root, value2, value1));
 	}
 }

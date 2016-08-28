@@ -46,6 +46,11 @@ namespace TreeManip
 		// No attempt is made to keep the tree balanced.
 		static std::unique_ptr<BTreeNode> InsertBST(std::unique_ptr<BTreeNode> root, int value);
 
+		// Returns the Lowest Common Ancestor of value1 and value2.
+		// Pre-Condition: root is a valid Binary Search Tree.
+		// Pre-Condition: Both value1 and value2 exist as nodes in the tree.
+		static BTreeNode* GetLowestCommonAncestor(BTreeNode* root, int value1, int value2);
+
 	private:
 
 
