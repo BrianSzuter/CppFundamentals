@@ -3,11 +3,13 @@
 #include "stdafx.h"
 #include "BTreeNode.h"
 #include <queue>
+#include <limits>
 
 using std::move;
 using std::unique_ptr;
 using std::make_unique;
 using std::queue;
+using std::numeric_limits;
 
 namespace
 {
@@ -77,6 +79,33 @@ namespace
 			return Get_LCA_Helper(root->GetRight(), valueLow, valueHigh);
 		}
 	}
+
+	bool IsValidBST_With_MinMax(BTreeNode* root, int min, int max)
+	{
+		if(root == nullptr)
+		{
+			return true;
+		}
+
+		if((root->GetLeft()) &&
+			((root->GetLeft()->GetData() >= root->GetData()) ||
+		   (root->GetLeft()->GetData() <= min) ||
+			 (root->GetLeft()->GetData() >= max)))
+		{
+			return false;
+		}
+
+		if((root->GetRight()) &&
+			((root->GetRight()->GetData() <= root->GetData()) ||
+		   (root->GetRight()->GetData() <= min) ||
+			 (root->GetRight()->GetData() >= max)))
+		{
+			return false;
+		}
+
+		return (IsValidBST_With_MinMax(root->GetLeft(), min, root->GetData()) &&
+				IsValidBST_With_MinMax(root->GetRight(), root->GetData(), max));
+	}
 }
 
 namespace TreeManip
@@ -117,6 +146,11 @@ namespace TreeManip
 	int BTreeNode::GetData()
 	{
 		return m_data;
+	}
+
+	void BTreeNode::SetData(int value)
+	{
+		m_data = value;
 	}
 
 	void BTreeNode::VisitPreOrder(BTreeNode* root, std::function<void(int)> f)
@@ -223,6 +257,16 @@ namespace TreeManip
 		InsertBST_Helper(root.get(), value);
 
 		return root;
+	}
+
+	bool BTreeNode::IsValidBST(BTreeNode * root)
+	{
+		if(root == nullptr)
+		{
+			return true;
+		}
+
+		return IsValidBST_With_MinMax(root, numeric_limits<int>::min(), numeric_limits<int>::max());
 	}
 
 	BTreeNode* BTreeNode::GetLowestCommonAncestor(BTreeNode* root, int value1, int value2)

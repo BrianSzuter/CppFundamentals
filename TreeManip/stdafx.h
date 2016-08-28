@@ -14,9 +14,12 @@
 // STL Headers
 //////////////////////////
 #include <algorithm>
+#include <limits>
 #include <map>
-#include <set>
 #include <memory>
+#include <queue>
+#include <set>
 #include <vector>
+
 
 #define _TREE_MANIP_DLL_

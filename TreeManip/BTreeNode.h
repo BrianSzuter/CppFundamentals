@@ -28,6 +28,8 @@ namespace TreeManip
 
 		int GetData();
 
+		void SetData(int value);
+
 		static void VisitPreOrder(BTreeNode* root, std::function<void(int)> f);
 		static void VisitInOrder(BTreeNode* root, std::function<void(int)> f);
 		static void VisitPostOrder(BTreeNode* root, std::function<void(int)> f);
@@ -44,7 +46,14 @@ namespace TreeManip
 		// and contains a new node for "value".
 		// Returns the (potentially) new root of the Binary Search Tree.
 		// No attempt is made to keep the tree balanced.
+		// No attempt is made to prevent the insertion of duplicates.
 		static std::unique_ptr<BTreeNode> InsertBST(std::unique_ptr<BTreeNode> root, int value);
+
+		// Returns whether or not the specified tree structure is a valid Binary Search Tree.
+		// To be a valid BST: for all nodes, every node to the left must be strictly less than the 
+		// current node and every node to the right must be strictly greater than the current node.
+		// No duplicate values are allowed.
+		static bool IsValidBST(BTreeNode* root);
 
 		// Returns the Lowest Common Ancestor of value1 and value2.
 		// Pre-Condition: root is a valid Binary Search Tree.

@@ -315,6 +315,62 @@ namespace TreeManipTests
 			Assert::AreEqual(0, root->GetLeft()->GetLeft()->GetData());
 		}
 
+		TEST_METHOD(IsValidBST_nullroot_IsValid)
+		{
+			auto result = BTreeNode::IsValidBST(nullptr);
+
+			Assert::IsTrue(result);
+		}
+
+		TEST_METHOD(IsValidBST_ValidBST_IsValid)
+		{
+			auto root = GenerateBTreeWithSevenNode();
+
+			auto result = BTreeNode::IsValidBST(root.get());
+
+			Assert::IsTrue(result);
+		}
+
+		TEST_METHOD(IsValidBST_RightGrandChild_GreaterThanRoot_IsNotValid)
+		{
+			auto root = GenerateBTreeWithSevenNode();
+			root->GetLeft()->GetRight()->SetData(5);
+
+			auto result = BTreeNode::IsValidBST(root.get());
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(IsValidBST_RightGrandChild_IsDuplicate_IsNotValid)
+		{
+			auto root = GenerateBTreeWithSevenNode();
+			root->GetLeft()->GetRight()->SetData(2);
+
+			auto result = BTreeNode::IsValidBST(root.get());
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(IsValidBST_LeftGrandChildRightSide_LessThanRoot_IsNotValid)
+		{
+			auto root = GenerateBTreeWithSevenNode();
+			root->GetRight()->GetLeft()->SetData(3);
+
+			auto result = BTreeNode::IsValidBST(root.get());
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(IsValidBST_LeftGrandChildRightSide_IsDuplicate_IsNotValid)
+		{
+			auto root = GenerateBTreeWithSevenNode();
+			root->GetRight()->GetRight()->SetData(6);
+
+			auto result = BTreeNode::IsValidBST(root.get());
+
+			Assert::IsFalse(result);
+		}
+
 		TEST_METHOD(GetLowestCommonAncestor_TableDriven)
 		{
 			struct TestItem
