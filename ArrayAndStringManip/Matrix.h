@@ -35,7 +35,7 @@ namespace ArrayAndStringManip
 
 		int GetCellValue(int x, int y);
 
-		int GetDimension();
+		size_t GetDimension();
 
 	private:
 		void RotateCellsNinetyClockwise(int & topleft, int & bottomleft, int & bottomright, int & topright);
