@@ -32,8 +32,8 @@ namespace ArrayAndStringManip
 		for(int layer = 0; layer < GetDimension() / 2; layer++)
 		{
 			// Create starting and ending indices for this layer
-			const auto start = layer;
-			const auto end = GetDimension() - layer - 1;
+			const int start = layer;
+			const int end = GetDimension() - layer - 1;
 
 			// Iterate over the cells of the rows / columns
 			for(int i = start; i < end; i++)
@@ -63,7 +63,7 @@ namespace ArrayAndStringManip
 		return m_MatrixData->at(x).at(y);
 	}
 
-	size_t Matrix::GetDimension()
+	int Matrix::GetDimension()
 	{
 		return m_MatrixData->size();
 	}

@@ -18,7 +18,7 @@ namespace ArrayAndStringManipTests
 
 			// Assert
 			auto size = m.GetDimension();
-			Assert::AreEqual(size_t(0), size);
+			Assert::AreEqual(0, size);
 		}
 
 		TEST_METHOD(MatrixConstruction_5x5)
@@ -28,7 +28,7 @@ namespace ArrayAndStringManipTests
 
 			// Assert
 			auto size = m.GetDimension();
-			Assert::AreEqual(size_t(5), size);
+			Assert::AreEqual(5, size);
 
 			for(int i = 0; i < 5; i++)
 			{
