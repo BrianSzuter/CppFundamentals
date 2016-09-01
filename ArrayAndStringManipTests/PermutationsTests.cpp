@@ -4,11 +4,11 @@
 #include <string>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace StringManip;
+using namespace ArrayAndStringManip;
 using namespace std::string_literals;
 using std::string;
 
-namespace StringManipTests
+namespace ArrayAndStringManipTests
 {		
 	TEST_CLASS(PermutationsTests)
 	{

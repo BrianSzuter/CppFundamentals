@@ -4,7 +4,7 @@
 #include "TimeConversion.h"
 using namespace std;
 
-namespace StringManip
+namespace ArrayAndStringManip
 {
 
 	// Format: HH:MM:SSAM or HH:MM:SSPM

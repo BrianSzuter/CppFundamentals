@@ -1,8 +1,8 @@
 #pragma once
 
-#include "StringManipExp.h"
+#include "ArrayAndStringManipExp.h"
 
-namespace StringManip
+namespace ArrayAndStringManip
 {
 	void STRING_MANIP_DLLEXPORT SwapChar(char& a, char& b);
 }

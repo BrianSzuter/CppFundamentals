@@ -2,7 +2,7 @@
 #include "Permutations.h"
 #include <exception>
 
-namespace StringManip
+namespace ArrayAndStringManip
 {
 	// Checks if two strings are permutations of each other using sort
 	bool IsPermutation(const std::string& string1, const std::string& string2)

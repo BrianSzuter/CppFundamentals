@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "UniqueCharacters.h"
 
-namespace StringManip
+namespace ArrayAndStringManip
 {
 
 	bool HasAllUniqueCharacters(std::string input)

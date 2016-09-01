@@ -1,9 +1,9 @@
 #pragma once
 
 #include <string>
-#include "StringManipExp.h"
+#include "ArrayAndStringManipExp.h"
 
-namespace StringManip
+namespace ArrayAndStringManip
 {
 	bool STRING_MANIP_DLLEXPORT HasAllUniqueCharacters(std::string input);
 

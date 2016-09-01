@@ -1,9 +1,9 @@
 #pragma once
 
-#include "StringManipExp.h"
+#include "ArrayAndStringManipExp.h"
 #include <vector>
 
-namespace StringManip
+namespace ArrayAndStringManip
 {	
 	enum class Direction
 	{

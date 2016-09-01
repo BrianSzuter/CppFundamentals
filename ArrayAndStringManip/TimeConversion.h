@@ -1,10 +1,10 @@
 #pragma once
 
-#include "StringManipExp.h"
+#include "ArrayAndStringManipExp.h"
 #include <vector>
 #include <string>
 
-namespace StringManip
+namespace ArrayAndStringManip
 {
 	std::string STRING_MANIP_DLLEXPORT ToMilitaryTime(const std::string& time);
 

@@ -3,9 +3,9 @@
 #include "UniqueCharacters.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace StringManip;
+using namespace ArrayAndStringManip;
 
-namespace StringManipTests
+namespace ArrayAndStringManipTests
 {		
 	TEST_CLASS(UniqueCharactersTests)
 	{

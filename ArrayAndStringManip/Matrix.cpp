@@ -3,7 +3,7 @@
 
 using std::vector;
 
-namespace StringManip
+namespace ArrayAndStringManip
 {
 	Matrix::Matrix()
 	{
