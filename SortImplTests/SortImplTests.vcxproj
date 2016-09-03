@@ -163,6 +163,10 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FindIndexsOfSumTests.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
