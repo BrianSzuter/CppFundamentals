@@ -163,6 +163,10 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BoggleSolverTests.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="MatrixTests.cpp">
       <SubType>
       </SubType>

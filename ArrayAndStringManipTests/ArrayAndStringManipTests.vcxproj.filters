@@ -41,5 +41,8 @@
     <ClCompile Include="MatrixTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BoggleSolverTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -152,8 +152,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ArrayAndStringManipExp.h" />
+    <ClInclude Include="BoggleSolver.h" />
     <ClInclude Include="Matrix.h" />
-    <ClInclude Include="StringManipExp.h" />
     <ClInclude Include="Swap.h" />
     <ClInclude Include="TimeConversion.h" />
     <ClInclude Include="UniqueCharacters.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BoggleSolver.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Swap.cpp" />
     <ClCompile Include="TimeConversion.cpp" />

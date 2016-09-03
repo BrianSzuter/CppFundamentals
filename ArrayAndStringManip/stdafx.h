@@ -9,6 +9,7 @@
 // STL Headers
 //////////////////////////
 #include <algorithm>
+#include <array>
 #include <map>
 #include <set>
 #include <vector>
