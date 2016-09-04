@@ -132,4 +132,34 @@ namespace SortNS
 
 		return make_pair(-1, -1);
 	}
+
+
+	int FindSumMidPointIndex(std::vector<int> values)
+	{
+		int left = 0;
+		int right = values.size() - 1;
+		int sum = 0;
+		while(left < right)
+		{
+			if(sum <= 0)
+			{
+				sum += values[left];
+				left++;
+			}
+			else // sum > 0
+			{ 
+				sum -= values[right];
+				right--;
+			}
+		}
+
+		if(sum == 0)
+		{
+			// Success
+			return left;
+		}
+
+		// No such index exists
+		return -1;		
+	}
 }

@@ -164,8 +164,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FindIndexsOfSumTests.cpp">
-      <SubType>
-      </SubType>
+    </ClCompile>
+    <ClCompile Include="FindSumMidPointIndexTests.cpp">
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -176,6 +176,10 @@
     <ProjectReference Include="..\SortImpl\SortImpl.vcxproj">
       <Project>{a83797e8-7215-4fd6-b882-8f9179a67b46}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="FindSumMidPointIndexTests_Input.txt">
+    </Text>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
