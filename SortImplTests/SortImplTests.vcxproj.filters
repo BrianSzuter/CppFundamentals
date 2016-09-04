@@ -35,6 +35,9 @@
     <ClCompile Include="FindSumMidPointIndexTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FindNumTimesRotatedTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="FindSumMidPointIndexTests_Input.txt">

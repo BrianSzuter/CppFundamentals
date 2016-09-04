@@ -165,6 +165,10 @@
   <ItemGroup>
     <ClCompile Include="FindIndexsOfSumTests.cpp">
     </ClCompile>
+    <ClCompile Include="FindNumTimesRotatedTests.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="FindSumMidPointIndexTests.cpp">
     </ClCompile>
     <ClCompile Include="stdafx.cpp">

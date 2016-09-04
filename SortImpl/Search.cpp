@@ -72,7 +72,7 @@ namespace SortNS
 		}
 	}
 
-	pair<int, int> FindIndicesOfSum(const vector<int> v, const int sum, bool UseSTL)
+	pair<int, int> FindIndicesOfSum(const vector<int>& v, int sum, bool UseSTL)
 	{
 		vector<ValueWithID> values(v.size());
 		for(auto i = 0u; i < values.size(); i++)
@@ -134,7 +134,7 @@ namespace SortNS
 	}
 
 
-	int FindSumMidPointIndex(std::vector<int> values)
+	int FindSumMidPointIndex(const vector<int>& values)
 	{
 		int left = 0;
 		int right = values.size() - 1;
@@ -161,5 +161,40 @@ namespace SortNS
 
 		// No such index exists
 		return -1;		
+	}
+
+	int FindNumTimesRotated(const vector<int>& values)
+	{
+		int numElements = values.size();
+
+		int low = 0;
+		int high = numElements - 1;
+
+		while(low <= high)
+		{
+			if(values[low] < values[high])
+			{
+				return low;
+			}
+
+			int mid = (low + high) / 2;
+			int next = (mid + 1) % numElements;
+			int prev = (mid - 1 + numElements) % numElements;
+			if(values[mid] < values[prev] && values[mid] < values[next])
+			{
+				return mid;
+			}
+
+			if(values[mid] <= values[high])
+			{
+				high = mid - 1;
+			}
+			else if(values[low] <= values[mid])
+			{
+				low = mid + 1;
+			}
+		}
+
+		return -1;
 	}
 }
