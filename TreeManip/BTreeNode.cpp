@@ -106,6 +106,23 @@ namespace
 		return (IsValidBST_With_MinMax(root->GetLeft(), min, root->GetData()) &&
 				IsValidBST_With_MinMax(root->GetRight(), root->GetData(), max));
 	}
+
+	// Helper for GetInOrderSuccessor.
+	// Gets the left-most child of n.
+	// If n has no left-children, n is returned.
+	BTreeNode* GetLeftMostDescendant(BTreeNode* n)
+	{
+		if(n == nullptr)
+			return nullptr;
+
+		BTreeNode* current = n;
+		while(current->GetLeft() != nullptr)
+		{
+			current = current->GetLeft();
+		}
+
+		return current;
+	}
 }
 
 namespace TreeManip
@@ -115,7 +132,10 @@ namespace TreeManip
 		, m_pLeft(move(left))
 		, m_pRight(move(right))
 	{
-
+		if(m_pLeft)
+			m_pLeft->SetParent(this);
+		if(m_pRight)
+			m_pRight->SetParent(this);
 	}
 
 	BTreeNode::BTreeNode(int data)
@@ -126,11 +146,20 @@ namespace TreeManip
 	void BTreeNode::SetLeft(unique_ptr<BTreeNode> left)
 	{
 		m_pLeft = move(left);
+		if(m_pLeft)
+			m_pLeft->SetParent(this);
 	}
 
 	void BTreeNode::SetRight(unique_ptr<BTreeNode> right)
 	{
 		m_pRight = move(right);
+		if(m_pRight)
+			m_pRight->SetParent(this);
+	}
+
+	void BTreeNode::SetParent(BTreeNode* parent)
+	{
+		m_pParent = parent;
 	}
 
 	BTreeNode* BTreeNode::GetLeft()
@@ -141,6 +170,11 @@ namespace TreeManip
 	BTreeNode* BTreeNode::GetRight()
 	{
 		return m_pRight.get();
+	}
+
+	BTreeNode * BTreeNode::GetParent()
+	{
+		return m_pParent;
 	}
 
 	int BTreeNode::GetData()
@@ -245,6 +279,38 @@ namespace TreeManip
 		int maxheight = std::max(left, right);
 
 		return maxheight + 1;
+	}
+
+	BTreeNode* BTreeNode::GetInOrderSuccessor(BTreeNode* node)
+	{
+		if(node == nullptr)
+			return nullptr;
+
+		if(node->GetRight() != nullptr)
+		{
+			return GetLeftMostDescendant(node->GetRight());
+		}
+		
+		auto current = node;
+
+		// Walk up the parent hierarchy until we come up
+		// the left-side of a parent.
+		while(current != nullptr)
+		{
+			auto parent = current->GetParent();
+			if(parent == nullptr)
+			{
+				return nullptr;
+			}
+			if(parent->GetLeft() == current)
+			{
+				return parent;
+			}
+			
+			current = parent;			
+		}
+		
+		return nullptr;
 	}
 
 	std::unique_ptr<BTreeNode> BTreeNode::InsertBST(std::unique_ptr<BTreeNode> root, int value)

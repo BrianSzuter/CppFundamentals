@@ -413,5 +413,46 @@ namespace TreeManipTests
 				Assert::AreEqual(t.expected, resultNode->GetData(), AssertMsg.c_str());
 			}
 		}
+
+		TEST_METHOD(GetInOrderSuccessor_FullSevenTree)
+		{
+			auto un1 = make_unique<BTreeNode>(1);
+			auto n1 = un1.get();
+			auto un3 = make_unique<BTreeNode>(3);
+			auto n3 = un3.get();
+
+			auto un2 = make_unique<BTreeNode>(2, move(un1), move(un3));
+			auto n2 = un2.get();
+
+			auto un5 = make_unique<BTreeNode>(5);
+			auto n5 = un5.get();
+			auto un7 = make_unique<BTreeNode>(7);
+			auto n7 = un7.get();
+			auto un6 = make_unique<BTreeNode>(6, move(un5), move(un7));
+			auto n6 = un6.get();
+
+			auto un4 = make_unique<BTreeNode>(4, move(un2), move(un6));
+			auto n4 = un4.get();
+
+			Assert::AreEqual(2, BTreeNode::GetInOrderSuccessor(n1)->GetData());
+			Assert::AreEqual(3, BTreeNode::GetInOrderSuccessor(n2)->GetData());
+			Assert::AreEqual(4, BTreeNode::GetInOrderSuccessor(n3)->GetData());
+			Assert::AreEqual(5, BTreeNode::GetInOrderSuccessor(n4)->GetData());
+			Assert::AreEqual(6, BTreeNode::GetInOrderSuccessor(n5)->GetData());
+			Assert::AreEqual(7, BTreeNode::GetInOrderSuccessor(n6)->GetData());
+			Assert::IsNull(BTreeNode::GetInOrderSuccessor(n7));
+		}
+
+		TEST_METHOD(GetInOrderSuccessor_NullTree)
+		{
+			Assert::IsNull(BTreeNode::GetInOrderSuccessor(nullptr));
+		}
+
+		TEST_METHOD(GetInOrderSuccessor_OneElementTree)
+		{
+			auto un1 = make_unique<BTreeNode>(1);
+
+			Assert::IsNull(BTreeNode::GetInOrderSuccessor(un1.get()));
+		}
 	};
 }

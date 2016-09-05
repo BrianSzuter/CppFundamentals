@@ -26,19 +26,27 @@ namespace TreeManip
 
 		BTreeNode* GetRight();
 
+		BTreeNode* GetParent();
+
 		int GetData();
 
 		void SetData(int value);
 
+		// DFS Visitation
 		static void VisitPreOrder(BTreeNode* root, std::function<void(int)> f);
 		static void VisitInOrder(BTreeNode* root, std::function<void(int)> f);
 		static void VisitPostOrder(BTreeNode* root, std::function<void(int)> f);
 
+		// BFS Visitation
 		static void VisitLevelOrder(BTreeNode* root, std::function<void(int)> f);
 
 		static void VisitEdgesOnly(BTreeNode* root, std::function<void(int)> f);
 
 		static int GetHeight(BTreeNode* root);
+
+		// Pre-Condition: node is in a valid Binary Search Tree.
+		// the returned BTreeNode node is the next node in "InOrder" visitation.
+		static BTreeNode* GetInOrderSuccessor(BTreeNode* node);
 
 		// Insert the specified value into the tree.
 		// Pre-Condition: root is a valid Binary Search Tree.
@@ -61,11 +69,12 @@ namespace TreeManip
 		static BTreeNode* GetLowestCommonAncestor(BTreeNode* root, int value1, int value2);
 
 	private:
-
+		void SetParent(BTreeNode* parent);
 
 		int m_data;
 		std::unique_ptr<BTreeNode> m_pLeft = nullptr;
 		std::unique_ptr<BTreeNode> m_pRight = nullptr;
+		BTreeNode* m_pParent = nullptr;
 	};
 }
 #pragma warning(pop)
