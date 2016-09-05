@@ -16,8 +16,12 @@ namespace SortNS
 	// Returns -1 if no such index exists.
 	SORT_IMPL_DLLEXPORT int FindSumMidPointIndex(const std::vector<int>& values);
 
-	// Given a sorted vector of values that has been rotated, returns the number of times the vector
+	// Given a circularly sorted vector of values, returns the number of times the vector
 	// has been rotated.
 	// values must not have any duplicates.
 	SORT_IMPL_DLLEXPORT int FindNumTimesRotated(const std::vector<int>& values);
+
+	// Given a circularly sorted vector of values, returns the index of the specified value 'x'.
+	// values must not have any duplicates.
+	SORT_IMPL_DLLEXPORT int FindValueInCircularlySortedArray(const std::vector<int>& values, int x);
 }

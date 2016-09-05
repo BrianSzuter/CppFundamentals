@@ -93,7 +93,7 @@ namespace SortImplTests
 			auto result = FindNumTimesRotated(v);
 
 			// Assert
-			Assert::AreEqual(-1, result);
+			Assert::AreEqual(0, result);
 		}
 	};
 }

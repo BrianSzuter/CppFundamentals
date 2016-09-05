@@ -172,7 +172,7 @@ namespace SortNS
 
 		while(low <= high)
 		{
-			if(values[low] < values[high])
+			if(values[low] <= values[high])
 			{
 				return low;
 			}
@@ -193,6 +193,49 @@ namespace SortNS
 			{
 				low = mid + 1;
 			}
+		}
+
+		return -1;
+	}
+
+	int FindValueInCircularlySortedArray(const vector<int>& values, int x)
+	{
+		int numElements = values.size();
+
+		int low = 0;
+		int high = numElements - 1;
+
+		while(low <= high)
+		{
+			int mid = (low + high) / 2;
+
+			if(values[mid] == x)
+			{
+				return mid;
+			}
+
+			if(values[mid] <= values[high]) // Right half is sorted
+			{
+				if(x > values[mid] && x <= values[high])// x is in sorted Right half
+				{
+					low = mid + 1;
+				}
+				else// x is NOT in sorted Right half
+				{
+					high = mid - 1;
+				}
+			}
+			else// Left half is sorted
+			{
+				if(x < values[mid] && x >= values[low])// x is in sorted Left half
+				{
+					high = mid - 1;
+				}
+				else// x is NOT in sorted Left half
+				{
+					low = mid + 1;
+				}
+			}			
 		}
 
 		return -1;

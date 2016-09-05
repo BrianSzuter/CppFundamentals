@@ -171,6 +171,10 @@
     </ClCompile>
     <ClCompile Include="FindSumMidPointIndexTests.cpp">
     </ClCompile>
+    <ClCompile Include="FindValueInCircularlySortedArrayTests.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
