@@ -142,6 +142,26 @@ namespace SortImplTests
 			Assert::IsTrue(expected == theVector);
 		}
 
+		TEST_METHOD(QuickSort_Sort5Items_SmallPivot_ItemsSorted)
+		{
+			vector<int> theVector{8, 8, 7, 8, 8};
+
+			SortNS::QuickSort(theVector);
+
+			vector<int> expected{7, 8, 8, 8, 8};
+			Assert::IsTrue(expected == theVector);
+		}
+
+		TEST_METHOD(QuickSort_Sort5Items_LargePivot_ItemsSorted)
+		{
+			vector<int> theVector{8, 8, 10, 8, 8};
+
+			SortNS::QuickSort(theVector);
+
+			vector<int> expected{8, 8, 8, 8, 10};
+			Assert::IsTrue(expected == theVector);
+		}
+
 		TEST_METHOD(QuickSort_Sort5000Items_ItemsSorted)
 		{
 			constexpr size_t NumItems = 5000;
