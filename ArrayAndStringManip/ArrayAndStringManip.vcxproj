@@ -155,6 +155,7 @@
     <ClInclude Include="ArrayAndStringManipExp.h" />
     <ClInclude Include="BoggleSolver.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="StringSplit.h" />
     <ClInclude Include="Swap.h" />
     <ClInclude Include="TimeConversion.h" />
     <ClInclude Include="UniqueCharacters.h" />
@@ -165,6 +166,7 @@
   <ItemGroup>
     <ClCompile Include="BoggleSolver.cpp" />
     <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="StringSplit.cpp" />
     <ClCompile Include="Swap.cpp" />
     <ClCompile Include="TimeConversion.cpp" />
     <ClCompile Include="UniqueCharacters.cpp" />
