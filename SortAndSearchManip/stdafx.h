@@ -19,4 +19,4 @@
 #include <memory>
 #include <vector>
 
-#define _SORT_IMPL_DLL_
+#define _SORT_AND_SEARCH_MANIP_DLL_

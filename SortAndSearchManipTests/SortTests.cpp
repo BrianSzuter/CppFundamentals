@@ -5,7 +5,7 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using std::vector;
 
-namespace SortImplTests
+namespace SortAndSearchManipTests
 {		
 	TEST_CLASS(SortTests)
 	{
@@ -15,7 +15,7 @@ namespace SortImplTests
 		{
 			vector<int> theVector{};
 
-			SortNS::MergeSort(theVector);
+			SortAndSearchManip::MergeSort(theVector);
 
 			vector<int> expected{};
 			Assert::IsTrue(expected == theVector);
@@ -25,7 +25,7 @@ namespace SortImplTests
 		{
 			vector<int> theVector{5};
 
-			SortNS::MergeSort(theVector);
+			SortAndSearchManip::MergeSort(theVector);
 
 			vector<int> expected{5};
 			Assert::IsTrue(expected == theVector);
@@ -35,7 +35,7 @@ namespace SortImplTests
 		{
 			vector<int> theVector{5, 2};
 
-			SortNS::MergeSort(theVector);
+			SortAndSearchManip::MergeSort(theVector);
 
 			vector<int> expected{2, 5};
 			Assert::IsTrue(expected == theVector);
@@ -45,7 +45,7 @@ namespace SortImplTests
 		{
 			vector<int> theVector{5, 2, 1, 0};
 
-			SortNS::MergeSort(theVector);
+			SortAndSearchManip::MergeSort(theVector);
 
 			vector<int> expected{0, 1, 2, 5};
 			Assert::IsTrue(expected == theVector);
@@ -55,7 +55,7 @@ namespace SortImplTests
 		{
 			vector<int> theVector{5, 2, 7, 11, 9};
 
-			SortNS::MergeSort(theVector);
+			SortAndSearchManip::MergeSort(theVector);
 
 			vector<int> expected{2, 5, 7, 9, 11};
 			Assert::IsTrue(expected == theVector);
@@ -70,7 +70,7 @@ namespace SortImplTests
 				theVector[i] = NumItems - i - 1;				
 			}
 
-			SortNS::MergeSort(theVector);
+			SortAndSearchManip::MergeSort(theVector);
 
 			vector<int> expected(NumItems);
 			for(int i = 0; i < NumItems; i++)
@@ -85,7 +85,7 @@ namespace SortImplTests
 		{
 			vector<int> theVector{5, 5, 5, 5, 5};
 
-			SortNS::MergeSort(theVector);
+			SortAndSearchManip::MergeSort(theVector);
 
 			vector<int> expected{5, 5, 5, 5, 5};
 			Assert::IsTrue(expected == theVector);
@@ -96,7 +96,7 @@ namespace SortImplTests
 		{
 			vector<int> theVector{};
 
-			SortNS::QuickSort(theVector);
+			SortAndSearchManip::QuickSort(theVector);
 
 			vector<int> expected{};
 			Assert::IsTrue(expected == theVector);
@@ -106,7 +106,7 @@ namespace SortImplTests
 		{
 			vector<int> theVector{5};
 
-			SortNS::QuickSort(theVector);
+			SortAndSearchManip::QuickSort(theVector);
 
 			vector<int> expected{5};
 			Assert::IsTrue(expected == theVector);
@@ -116,7 +116,7 @@ namespace SortImplTests
 		{
 			vector<int> theVector{5, 2};
 
-			SortNS::QuickSort(theVector);
+			SortAndSearchManip::QuickSort(theVector);
 
 			vector<int> expected{2, 5};
 			Assert::IsTrue(expected == theVector);
@@ -126,7 +126,7 @@ namespace SortImplTests
 		{
 			vector<int> theVector{5, 2, 1, 0};
 
-			SortNS::QuickSort(theVector);
+			SortAndSearchManip::QuickSort(theVector);
 
 			vector<int> expected{0, 1, 2, 5};
 			Assert::IsTrue(expected == theVector);
@@ -136,7 +136,7 @@ namespace SortImplTests
 		{
 			vector<int> theVector{5, 2, 7, 11, 9};
 
-			SortNS::QuickSort(theVector);
+			SortAndSearchManip::QuickSort(theVector);
 
 			vector<int> expected{2, 5, 7, 9, 11};
 			Assert::IsTrue(expected == theVector);
@@ -146,7 +146,7 @@ namespace SortImplTests
 		{
 			vector<int> theVector{8, 8, 7, 8, 8};
 
-			SortNS::QuickSort(theVector);
+			SortAndSearchManip::QuickSort(theVector);
 
 			vector<int> expected{7, 8, 8, 8, 8};
 			Assert::IsTrue(expected == theVector);
@@ -156,7 +156,7 @@ namespace SortImplTests
 		{
 			vector<int> theVector{8, 8, 10, 8, 8};
 
-			SortNS::QuickSort(theVector);
+			SortAndSearchManip::QuickSort(theVector);
 
 			vector<int> expected{8, 8, 8, 8, 10};
 			Assert::IsTrue(expected == theVector);
@@ -171,7 +171,7 @@ namespace SortImplTests
 				theVector[i] = NumItems - i - 1;
 			}
 
-			SortNS::QuickSort(theVector);
+			SortAndSearchManip::QuickSort(theVector);
 
 			vector<int> expected(NumItems);
 			for(int i = 0; i < NumItems; i++)
@@ -186,7 +186,7 @@ namespace SortImplTests
 		{
 			vector<int> theVector{5, 9, 11, 7, 2};
 
-			SortNS::QuickSort(theVector);
+			SortAndSearchManip::QuickSort(theVector);
 
 			vector<int> expected{2, 5, 7, 9, 11};
 			Assert::IsTrue(expected == theVector);
@@ -196,7 +196,7 @@ namespace SortImplTests
 		{
 			vector<int> theVector{5, 5, 5, 5, 5};
 
-			SortNS::QuickSort(theVector);
+			SortAndSearchManip::QuickSort(theVector);
 
 			vector<int> expected{5, 5, 5, 5, 5};
 			Assert::IsTrue(expected == theVector);
@@ -210,7 +210,7 @@ namespace SortImplTests
 			a.resize(4);
 			vector<int> b{2, 4, 7};
 
-			auto retval = SortNS::MergeTogetherSortedArrays(a, b);
+			auto retval = SortAndSearchManip::MergeTogetherSortedArrays(a, b);
 			
 			Assert::AreEqual(0, retval);
 			vector<int> expected{1, 2, 3, 4, 5, 6, 7};
@@ -224,7 +224,7 @@ namespace SortImplTests
 			a.resize(4);
 			vector<int> b{2, 4, 7};
 
-			auto retval = SortNS::MergeTogetherSortedArrays(a, b);
+			auto retval = SortAndSearchManip::MergeTogetherSortedArrays(a, b);
 
 			Assert::AreEqual(0, retval);
 			vector<int> expected{2, 4, 7, 8, 9, 10, 11};
@@ -238,7 +238,7 @@ namespace SortImplTests
 			a.resize(4);
 			vector<int> b{6, 7, 8};
 
-			auto retval = SortNS::MergeTogetherSortedArrays(a, b);
+			auto retval = SortAndSearchManip::MergeTogetherSortedArrays(a, b);
 
 			Assert::AreEqual(0, retval);
 			vector<int> expected{1, 3, 4, 5, 6, 7, 8};
@@ -251,7 +251,7 @@ namespace SortImplTests
 			a.resize(0);
 			vector<int> b{6, 7, 8};
 
-			auto retval = SortNS::MergeTogetherSortedArrays(a, b);
+			auto retval = SortAndSearchManip::MergeTogetherSortedArrays(a, b);
 
 			Assert::AreEqual(0, retval);
 			vector<int> expected{6, 7, 8};
@@ -263,7 +263,7 @@ namespace SortImplTests
 			vector<int> a{1, 3, 4, 5};
 			vector<int> b(0);
 
-			auto retval = SortNS::MergeTogetherSortedArrays(a, b);
+			auto retval = SortAndSearchManip::MergeTogetherSortedArrays(a, b);
 
 			Assert::AreEqual(0, retval);
 			vector<int> expected{1, 3, 4, 5};
@@ -275,7 +275,7 @@ namespace SortImplTests
 			vector<int> a(0);
 			vector<int> b(0);
 
-			auto retval = SortNS::MergeTogetherSortedArrays(a, b);
+			auto retval = SortAndSearchManip::MergeTogetherSortedArrays(a, b);
 
 			Assert::AreEqual(0, retval);
 			vector<int> expected(0);

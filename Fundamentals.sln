@@ -7,9 +7,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArrayAndStringManip", "Arra
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArrayAndStringManipTests", "ArrayAndStringManipTests\ArrayAndStringManipTests.vcxproj", "{1379D5F7-56FA-4A8C-868D-C60478F090E1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SortImpl", "SortImpl\SortImpl.vcxproj", "{A83797E8-7215-4FD6-B882-8F9179A67B46}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SortAndSearchManip", "SortAndSearchManip\SortAndSearchManip.vcxproj", "{A83797E8-7215-4FD6-B882-8F9179A67B46}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SortImplTests", "SortImplTests\SortImplTests.vcxproj", "{7FFABB27-C448-404B-BD6A-A422B726BD93}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SortAndSearchManipTests", "SortAndSearchManipTests\SortAndSearchManipTests.vcxproj", "{7FFABB27-C448-404B-BD6A-A422B726BD93}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinkedListManip", "LinkedListManip\LinkedListManip.vcxproj", "{87A47E15-ED47-42FB-AD0D-71A5BD0AEBD4}"
 EndProject

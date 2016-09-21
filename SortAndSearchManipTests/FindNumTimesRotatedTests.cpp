@@ -3,10 +3,10 @@
 #include "Search.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace SortNS;
+using namespace SortAndSearchManip;
 using namespace std;
 
-namespace SortImplTests
+namespace SortAndSearchManipTests
 {		
 	TEST_CLASS(FindNumTimesRotatedTests)
 	{

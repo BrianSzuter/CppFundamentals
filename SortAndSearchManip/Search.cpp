@@ -4,7 +4,7 @@
 
 using namespace std;
 
-namespace SortNS
+namespace SortAndSearchManip
 {
 	namespace
 	{

@@ -3,7 +3,7 @@
 
 using std::vector;
 
-namespace SortNS
+namespace SortAndSearchManip
 {
 	void MergeSort(vector<int>& array)
 	{

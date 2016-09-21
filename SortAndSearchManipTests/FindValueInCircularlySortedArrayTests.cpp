@@ -4,9 +4,9 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
-using namespace SortNS;
+using namespace SortAndSearchManip;
 
-namespace SortImplTests
+namespace SortAndSearchManipTests
 {		
 	TEST_CLASS(FindValueInCircularlySortedArrayTests)
 	{
