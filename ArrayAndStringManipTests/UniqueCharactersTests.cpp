@@ -4,12 +4,15 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace ArrayAndStringManip;
+using namespace std::string_literals;
 
 namespace ArrayAndStringManipTests
 {		
 	TEST_CLASS(UniqueCharactersTests)
 	{
 	public:
+
+	#pragma region "HasAllUniqueCharacters Tests"
 		TEST_METHOD(HasAllUniqueCharacters_WhenSimpleDuplicate_ReturnsFalse)
 		{
 			auto result = HasAllUniqueCharacters("abb");
@@ -44,9 +47,9 @@ namespace ArrayAndStringManipTests
 
 			Assert::IsTrue(result);
 		}
-
+	#pragma endregion
 		//---------------------------------------------------------------------
-
+	#pragma region "HasAllUniqueCharacters_AdjFind Tests"
 		TEST_METHOD(HasAllUniqueCharacters_AdjFind_WhenSimpleDuplicate_ReturnsFalse)
 		{
 			auto result = HasAllUniqueCharacters_AdjFind("abb");
@@ -81,9 +84,9 @@ namespace ArrayAndStringManipTests
 
 			Assert::IsTrue(result);
 		}
-
+	#pragma endregion
 		//---------------------------------------------------------------------
-
+	#pragma region "HasAllUniqueCharactersMap Tests"
 		TEST_METHOD(HasAllUniqueCharactersMap_WhenSimpleDuplicate_ReturnsFalse)
 		{
 			auto result = HasAllUniqueCharactersMap("abb");
@@ -118,9 +121,9 @@ namespace ArrayAndStringManipTests
 
 			Assert::IsTrue(result);
 		}
-
+	#pragma endregion
 		//---------------------------------------------------------------------
-
+	#pragma region "HasAllUniqueCharactersSet Tests"
 		TEST_METHOD(HasAllUniqueCharactersSet_WhenSimpleDuplicate_ReturnsFalse)
 		{
 			auto result = HasAllUniqueCharactersSet("abb");
@@ -155,5 +158,57 @@ namespace ArrayAndStringManipTests
 
 			Assert::IsTrue(result);
 		}
-	};
+	#pragma endregion
+		//---------------------------------------------------------------------
+	#pragma region "GetFirstUniqueCharacter Tests"
+		TEST_METHOD(GetFirstUniqueCharacter_EmptyString_ReturnsTrue)
+		{
+			auto result = GetFirstUniqueCharacter("");
+
+			Assert::AreEqual('\0', result);
+		}
+
+		TEST_METHOD(GetFirstUniqueCharacter_FirstCharacterIsUnique_ReturnsIt)
+		{
+			auto result = GetFirstUniqueCharacter("hello"s);
+
+			Assert::AreEqual('h', result);
+		}
+
+		TEST_METHOD(GetFirstUniqueCharacter_SingleCharacter_ReturnsIt)
+		{
+			auto result = GetFirstUniqueCharacter("a"s);
+
+			Assert::AreEqual('a', result);
+		}
+
+		TEST_METHOD(GetFirstUniqueCharacter_NoUniques_ReturnsNothing)
+		{
+			auto result = GetFirstUniqueCharacter("abba"s);
+
+			Assert::AreEqual('\0', result);
+		}
+
+		TEST_METHOD(GetFirstUniqueCharacter_MiddleCharacter_ReturnsIt)
+		{
+			auto result = GetFirstUniqueCharacter("abcba"s);
+
+			Assert::AreEqual('c', result);
+		}
+
+		TEST_METHOD(GetFirstUniqueCharacter_LastCharacter_ReturnsIt)
+		{
+			auto result = GetFirstUniqueCharacter("abbac"s);
+
+			Assert::AreEqual('c', result);
+		}
+
+		TEST_METHOD(GetFirstUniqueCharacter_SeveralUnique_ReturnsFirst)
+		{
+			auto result = GetFirstUniqueCharacter("zxvczbtxyzvy"s);
+
+			Assert::AreEqual('c', result);
+		}
+	#pragma endregion
+};
 }

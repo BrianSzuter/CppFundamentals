@@ -1,18 +1,21 @@
 
 #include "stdafx.h"
 #include "UniqueCharacters.h"
+#include <unordered_map>
+
+using namespace std;
 
 namespace ArrayAndStringManip
 {
 
-	bool HasAllUniqueCharacters(std::string input)
+	bool HasAllUniqueCharacters(string input)
 	{
 		if(input.empty())
 		{
 			return true;
 		}
 
-		std::sort(begin(input), end(input));
+		sort(begin(input), end(input));
 
 		for(auto i = 0u; i < input.length() - 1; i++)
 		{
@@ -25,15 +28,15 @@ namespace ArrayAndStringManip
 		return true;
 	}
 
-	bool HasAllUniqueCharacters_AdjFind(std::string input)
+	bool HasAllUniqueCharacters_AdjFind(string input)
 	{
 		if(input.empty())
 		{
 			return true;
 		}
 
-		std::sort(begin(input), end(input));
-		auto iter = std::adjacent_find(begin(input), end(input));
+		sort(begin(input), end(input));
+		auto iter = adjacent_find(begin(input), end(input));
 
 		if(iter == input.end())
 		{
@@ -45,21 +48,21 @@ namespace ArrayAndStringManip
 		return false;
 	}
 
-	bool HasAllUniqueCharactersMap(std::string input)
+	bool HasAllUniqueCharactersMap(string input)
 	{
 		if(input.empty())
 		{
 			return true;
 		}
 
-		std::map<char, bool> theMap;
+		map<char, bool> theMap;
 
 		for(const auto& character : input)
 		{
 			auto result = theMap.find(character);
 			if(result == theMap.end())
 			{
-				theMap.insert(std::make_pair(character, true));
+				theMap.insert(make_pair(character, true));
 			}
 			else
 			{
@@ -70,14 +73,14 @@ namespace ArrayAndStringManip
 		return true;
 	}
 
-	bool HasAllUniqueCharactersSet(std::string input)
+	bool HasAllUniqueCharactersSet(string input)
 	{
 		if(input.empty())
 		{
 			return true;
 		}
 
-		std::set<char> theSet;
+		set<char> theSet;
 
 		for(const auto& character : input)
 		{
@@ -93,5 +96,27 @@ namespace ArrayAndStringManip
 		}
 
 		return true;
+	}
+
+	char GetFirstUniqueCharacter(const string& input)
+	{
+		unordered_map<char, int> map;
+		for(auto i = 0u; i < input.length(); i++)
+		{
+			auto result = map.find(input[i]);
+			if(result != end(map))
+				result->second++;
+			else
+				map[input[i]] = 1;
+		}
+
+		for(auto i = 0u; i < input.length(); i++)
+		{
+			if(map[input[i]] == 1)
+			{
+				return input[i];
+			}
+		}
+		return '\0';
 	}
 };
